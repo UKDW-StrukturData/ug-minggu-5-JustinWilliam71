@@ -1,12 +1,18 @@
 import csv
-import streamlit as st
+# import streamlit as st
 
 # --- Fungsi untuk load data ---
 def load_news(filename):
     """Baca file news_data.csv ke list of dict"""
     # TODO: buka file CSV (filename) dan baca dengan csv.DictReader
     # kembalikan hasilnya dalam bentuk list
-    pass
+    with open('news_data.csv', 'r') as datafile:
+        read = csv.DictReader(load_news)
+        ganti = list(read)
+        return ganti
+
+print(load_news('news_data.csv'))
+apa
 
 def load_comments(filename):
     """Baca file comment_news.csv ke list of dict"""
@@ -50,9 +56,9 @@ def process_data(news_list, comments_list):
     return result
 
 # --- Fungsi untuk tampilkan di Streamlit ---
-def main():
-    st.title("Analisis Sentimen & Popularitas Berita")
-    st.write("Menampilkan ID, Headline, Rata-rata Rating, dan Jumlah Komentar, diurutkan dari rating tertinggi.")
+# def main():
+#     st.title("Analisis Sentimen & Popularitas Berita")
+#     st.write("Menampilkan ID, Headline, Rata-rata Rating, dan Jumlah Komentar, diurutkan dari rating tertinggi.")
 
     # TODO: baca data CSV
     news_data = []     # ganti dengan pemanggilan load_news
@@ -65,5 +71,5 @@ def main():
     # hint: gunakan st.table(hasil)
     pass
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
